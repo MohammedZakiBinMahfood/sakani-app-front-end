@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'custom_text_form_field.dart';
 
-class PasswordField extends StatefulWidget {
-  final TextEditingController controller;
+class CustomPasswordField extends StatefulWidget {
+  final void Function(String?)? onSaved;
   final String labelText;
   final String hintText;
   final Icon? prefixIcon;
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
 
-  const PasswordField({
+  const CustomPasswordField({
     super.key,
-    required this.controller,
+    this.onSaved,
     required this.labelText,
     required this.hintText,
     this.keyboardType,
@@ -20,10 +20,10 @@ class PasswordField extends StatefulWidget {
   });
 
   @override
-  State<PasswordField> createState() => _PasswordFieldState();
+  State<CustomPasswordField> createState() => _CustomPasswordFieldState();
 }
 
-class _PasswordFieldState extends State<PasswordField> {
+class _CustomPasswordFieldState extends State<CustomPasswordField> {
   bool _isObscured = true;
 
   void _toggleVisibility() {
@@ -35,7 +35,7 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      controller: widget.controller,
+      onSaved: widget.onSaved,
       labelText: widget.labelText,
       hintText: widget.hintText,
       prefixIcon: widget.prefixIcon,
