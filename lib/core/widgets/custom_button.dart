@@ -5,23 +5,21 @@ class CustomButton extends StatelessWidget {
   const CustomButton({super.key, this.onTap, required this.text});
   final VoidCallback? onTap;
   final String text;
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: kPrimaryColor,
+    return TextButton(
+      onPressed: onTap,
+      style: TextButton.styleFrom(
+        backgroundColor: kPrimaryColor,
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
-        width: 356,
-        height: 48,
-        child: Center(
-          child: Text(
-            text,
-            style: const TextStyle(color: Colors.white, fontSize: 18),
-          ),
-        ),
+        fixedSize: const Size(356, 48),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white, fontSize: 18),
       ),
     );
   }
