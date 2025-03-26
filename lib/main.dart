@@ -13,6 +13,7 @@ import 'Features/Registration/presentation/views/register_page.dart';
 import 'Features/Room Management/presentation/views/add_room_page.dart';
 import 'Features/Room Management/presentation/views/edit_room_page.dart';
 import 'Features/Room Management/presentation/views/view_rooms_page.dart';
+import 'Features/costManagment/presentation/views/cost_view.dart';
 import 'Features/wing Management/presentation/views/add_wing_page.dart';
 import 'Features/wing Management/presentation/views/edit_wing_page.dart';
 import 'Features/wing Management/presentation/views/view_wings_page.dart';
@@ -65,8 +66,11 @@ class MyApp extends StatelessWidget {
             const EditEducationalInstitutionPage(),
         ViewEducationalInstitutionsPage.id: (context) =>
             const ViewEducationalInstitutionsPage(),
+
+        //Cost Managemnt
+        CostView.id: (conext) => const CostView()
       },
-      initialRoute: LoginPage.id,
+      initialRoute: CostView.id,
     );
   }
 }
